@@ -28,9 +28,9 @@ class Edit extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { isbn, title, author, description, published_year, publisher } = this.state.book;
+        const { isbn, title, author, description, published_date, publisher } = this.state.book;
 
-        axios.put('/api/book/'+this.props.match.params.id, { isbn, title, author, description, published_year, publisher })
+        axios.put('/api/book/'+this.props.match.params.id, { isbn, title, author, description, published_date, publisher })
         .then((result) => {
             this.props.history.push("/show/"+this.props.match.params.id)
         });
@@ -46,7 +46,7 @@ class Edit extends Component {
                     <div class="card">
                         <div class="card-body">
                             <div class="panel-body">
-                                <h4><Link to={`/show/${this.state.book._id}`} class="btn btn-outline-warning"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Book List</Link></h4>
+                                <h4><Link to={`/show/${this.state.book._id}`} class="btn btn-outline-warning"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Book Detail</Link></h4>
                                 <form onSubmit={this.onSubmit}>
                                     <div class="form-group">
                                         <label for="isbn">ISBN:</label>
@@ -65,8 +65,8 @@ class Edit extends Component {
                                         <input type="text" class="form-control" name="description" value={this.state.book.description} onChange={this.onChange} placeholder="Description" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="published_date">Published Date:</label>
-                                        <input type="number" class="form-control" name="published_year" value={this.state.book.published_year} onChange={this.onChange} placeholder="Published Year" />
+                                        <label for="published_date">Published Year:</label>
+                                        <input type="number" class="form-control" name="published_date" min="1900" max="2030" value={this.state.book.published_date} onChange={this.onChange} placeholder="Published Year" />
                                     </div>
                                     <div class="form-group">
                                         <label for="publisher">Publisher:</label>

@@ -12,7 +12,7 @@ class Create extends Component {
         title: '',
         author: '',
         description: '',
-        published_year: '',
+        published_date: '',
         publisher: ''
         };
     }
@@ -25,16 +25,16 @@ class Create extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { isbn, title, author, description, published_year, publisher } = this.state;
+        const { isbn, title, author, description, published_date, publisher } = this.state;
 
-        axios.post('/api/book', { isbn, title, author, description, published_year, publisher })
+        axios.post('/api/book', { isbn, title, author, description, published_date, publisher })
         .then((result) => {
             this.props.history.push("/")
         });
     }
 
     render() {
-        const { isbn, title, author, description, published_year, publisher } = this.state;
+        const { isbn, title, author, description, published_date, publisher } = this.state;
         return (
             <div class="container mt-5 mb-5">
                 <div class="panel panel-default">
@@ -63,8 +63,8 @@ class Create extends Component {
                                         <textArea class="form-control mr-sm-2" name="description" onChange={this.onChange} placeholder="Description" cols="80" rows="3">{description}</textArea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="published_date">Published Date:</label>
-                                        <input type="number" class="form-control mr-sm-2" name="published_year" value={published_year} onChange={this.onChange} placeholder="Published Year" />
+                                        <label for="published_date">Published Year:</label>
+                                        <input type="number" class="form-control mr-sm-2" name="published_date" min="1900" max="2030" value={published_date} onChange={this.onChange} placeholder="Published Year" />
                                     </div>
                                     <div class="form-group">
                                         <label for="publisher">Publisher:</label>

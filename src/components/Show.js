@@ -47,8 +47,8 @@ class Show extends Component {
                                 <dd>{this.state.book.author}</dd>
                                 <dt>Description:</dt>
                                 <dd>{this.state.book.description}</dd>
-                                <dt>Publish Date:</dt>
-                                <dd>{this.state.book.published_year}</dd>
+                                <dt>Publish Year:</dt>
+                                <dd>{this.state.book.published_date}</dd>
                                 <dt>Publisher:</dt>
                                 <dd>{this.state.book.publisher}</dd>
                                 </dl>

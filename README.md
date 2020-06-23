@@ -1,4 +1,4 @@
-# CRUD MERN Stack
+# MERN Stack Simple CRUD
 
 This source code is for learning only about how to build simple CRUD Web Application using MERN Stack.
 
